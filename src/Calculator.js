@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
-// Componentes estilizados usando styled-components
 const CalculatorWrapper = styled.div`
   width: 300px;
   margin: 50px auto;
   background: #2d3e45;
   border-radius: 15px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 10px rgba(0,0,0, 0.3);
   padding: 15px;
 `;
 
@@ -41,25 +40,24 @@ const Button = styled.button`
   transition: all 0.2s ease;
 
   &:hover {
-    background: ${(props) => (props.isAction ? '#ffc572' : '#3c4a50')};
+    background: ${(props) => (props.isAction ? '#ffc572' : '#3c4a50')}
   }
-`;
+  `;
 
-const Calculator = () => {
-  const [input, setInput] = useState('');
+  const Calculator = () => {
+    const [input, setInput] = useState('');
 
-  // Funções de interação com a calculadora
-  const handleInput = (value) => {
-    setInput(input + value);
-  };
+    const handInput = (value) => {
+      setInput(input + value);
+    };
 
-  const calculateResult = () => {
-    try {
-      setInput(eval(input).toString());
-    } catch (error) {
-      setInput('Erro');
-    }
-  };
+    const calculateResult = () => {
+      try {
+        setInput(eval(input).toString());
+      } catch (error) {
+        setInput('Erro');
+      }
+    };
 
   const clearInput = () => {
     setInput('');
@@ -69,35 +67,31 @@ const Calculator = () => {
     <CalculatorWrapper>
       <Display>{input}</Display>
       <ButtonsContainer>
-        {/* Primeira linha de botões */}
-        <Button onClick={clearInput} isAction>C</Button>
-        <Button onClick={() => setInput('')} isAction>AC</Button>
-        <Button onClick={() => handleInput('/')} isAction>&divide;</Button>
-        <Button onClick={() => handleInput('*')} isAction>&times;</Button>
+        
+          <Button onClick={clearInput} isAction>C</Button>
+          <Button onClick={() => setInput ('')} isAction>AC</Button>
+          <Button onClick={() => handInput ('/')} isAction>/</Button>
+          <Button onClick={() => handInput ('*')} isAction>x</Button>
 
-        {/* Segunda linha */}
-        <Button onClick={() => handleInput('7')}>7</Button>
-        <Button onClick={() => handleInput('8')}>8</Button>
-        <Button onClick={() => handleInput('9')}>9</Button>
-        <Button onClick={() => handleInput('-')} isAction>-</Button>
+          <Button onClick={() => handInput ('7')}>7</Button>
+          <Button onClick={() => handInput ('8')}>8</Button>
+          <Button onClick={() => handInput ('9')}>9</Button>
+          <Button onClick={() => handInput ('-')} isAction>-</Button>
 
-        {/* Terceira linha */}
-        <Button onClick={() => handleInput('4')}>4</Button>
-        <Button onClick={() => handleInput('5')}>5</Button>
-        <Button onClick={() => handleInput('6')}>6</Button>
-        <Button onClick={() => handleInput('+')} isAction>+</Button>
+          <Button onClick={() => handInput ('4')}>7</Button>
+          <Button onClick={() => handInput ('5')}>8</Button>
+          <Button onClick={() => handInput ('6')}>9</Button>
+          <Button onClick={() => handInput ('+')} isAction>+</Button>
 
-        {/* Quarta linha */}
-        <Button onClick={() => handleInput('1')}>1</Button>
-        <Button onClick={() => handleInput('2')}>2</Button>
-        <Button onClick={() => handleInput('3')}>3</Button>
-        <Button onClick={calculateResult} isAction>=</Button>
+          <Button onClick={() => handInput ('1')}>1</Button>
+          <Button onClick={() => handInput ('2')}>2</Button>
+          <Button onClick={() => handInput ('3')}>3</Button>
+          <Button onClick= {calculateResult} isAction>=</Button>
 
-        {/* Última linha */}
-        <Button onClick={() => handleInput('0')} style={{ gridColumn: 'span 2' }}>0</Button>
-        <Button onClick={() => handleInput('.')}>.</Button>
-      </ButtonsContainer>
-    </CalculatorWrapper>
+          <Button onClick={() => handInput('0')} style={{ gridColumn: 'span 2'}}>0</Button>
+          <Button onClick={() => handInput('.')}>.</Button>
+          </ButtonsContainer>
+      </CalculatorWrapper>
   );
 };
 
